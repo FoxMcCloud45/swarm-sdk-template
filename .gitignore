@@ -1,0 +1,87 @@
+# Source user files
+# <https://developer.valvesoftware.com/w/index.php?title=Pre-publication_evaluation&oldid=452792>
+/build/DownloadLists/
+/build/expressions/
+/build/materials/maps/
+/build/materials/temp/
+/build/reslists/
+/build/SAVE/
+/build/save/
+/build/screenshots/
+/build/sound/temp/
+/build/cfg/banned_user.cfg
+/build/cfg/banned_ip.cfg
+/build/cfg/config.cfg
+/build/cfg/pet.txt
+/build/cfg/settings.scr
+/build/maps/soundcache/*.cache
+/build/scripts/kb_def.lst
+/build/scripts/settings.scr
+/build/albedo.tga
+/build/console.log
+/build/demoheader.tmp
+/build/modelsounds.cache
+/build/scene.cache
+/build/stats.txt
+/build/textwindow_temp.txt
+
+# Source demos/movies
+/build/*.avi
+/build/*.dem
+/build/*.jpg
+/build/*.tga
+/build/*.wav
+
+# Source build files
+/build/bin/*.pdb
+
+#OS junk files
+[Tt]humbs.db
+*.DS_Store
+
+#Visual Studio files
+*.[Oo]bj
+*.user
+*.aps
+*.pch
+*.vspscc
+*.vssscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.[Cc]ache
+*.ilk
+*.log
+*.lib
+*.sbr
+*.sdf
+*.opensdf
+*.unsuccessfulbuild
+ipch/
+obj/
+[Bb]in
+[Dd]ebug*/
+[Rr]elease*/
+[Pp]ublish
+Ankh.NoLoad
+
+#Tooling
+_ReSharper*/
+*.resharper
+[Tt]est[Rr]esult*
+
+#Project files
+[Bb]uild/
+
+#Subversion files
+.svn
+
+# Office Temp Files
+~$*
+
+#NuGet
+packages/
