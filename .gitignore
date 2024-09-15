@@ -1,6 +1,8 @@
 # Source user files
 # <https://developer.valvesoftware.com/w/index.php?title=Pre-publication_evaluation&oldid=452792>
 /build/addons/
+/build/download/
+/build/downloads/
 /build/[Dd]ownload[Ll]ists/
 /build/expressions/
 /build/materials/maps/
@@ -14,7 +16,9 @@
 /build/cfg/banned_ip.cfg
 /build/cfg/config.cfg
 /build/cfg/pet.txt
+/build/cfg/server_blacklist.txt
 /build/cfg/settings.scr
+/build/cfg/video.txt
 /build/maps/soundcache/*.cache
 /build/scripts/kb_def.lst
 /build/scripts/settings.scr
@@ -23,6 +27,7 @@
 /build/demoheader.tmp
 /build/modelsounds.cache
 /build/scene.cache
+/build/serverconfig.vdf
 /build/stats.txt
 /build/textwindow_temp.txt
 
@@ -77,6 +82,8 @@ _ReSharper*/
 
 #Project files
 [Bb]uild/
+# Except our root build folder, obviously...
+!/build/
 
 #Subversion files
 .svn
