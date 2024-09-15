@@ -1,6 +1,7 @@
 # Source user files
 # <https://developer.valvesoftware.com/w/index.php?title=Pre-publication_evaluation&oldid=452792>
-/build/DownloadLists/
+/build/addons/
+/build/[Dd]ownload[Ll]ists/
 /build/expressions/
 /build/materials/maps/
 /build/materials/temp/
