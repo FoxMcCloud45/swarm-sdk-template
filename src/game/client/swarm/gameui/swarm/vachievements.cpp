@@ -145,7 +145,7 @@ void AchievementListItem::SetGamerScore(int score)
 {
 	m_GamerScore = score;
 
-	wchar_t buffer[10];
+	wchar_t buffer[64];
 	wchar_t num[5];
 
 	V_snwprintf( num, sizeof(num), L"%d", m_GamerScore );
