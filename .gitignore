@@ -19,6 +19,7 @@
 /build/cfg/server_blacklist.txt
 /build/cfg/settings.scr
 /build/cfg/video.txt
+/build/cfg/videodefaults.txt
 /build/maps/soundcache/*.cache
 /build/scripts/kb_def.lst
 /build/scripts/settings.scr
@@ -30,6 +31,7 @@
 /build/serverconfig.vdf
 /build/stats.txt
 /build/textwindow_temp.txt
+/build/voice_ban.dt
 
 # Source demos/movies
 /build/*.avi
