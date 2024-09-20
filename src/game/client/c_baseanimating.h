@@ -80,8 +80,10 @@ public:
 	matrix3x4_t	m_AttachmentToWorld;
 	QAngle	m_angRotation;
 	Vector	m_vOriginVelocity;
-	int		m_nLastFramecount : 31;
-	int		m_bAnglesComputed : 1;
+	// NOTE(Josh): Changed this from a bitfield,
+	// Otherwise this is UB and doesn't do what we want.
+	int		m_nLastFramecount;
+	bool    m_bAnglesComputed;
 };
 
 
