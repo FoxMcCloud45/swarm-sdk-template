@@ -1,4 +1,4 @@
-//========= Copyright © 1996-2005, Valve Corporation, All rights reserved. ============//
+//========= Copyright ï¿½ 1996-2005, Valve Corporation, All rights reserved. ============//
 //
 // Purpose: 
 //
@@ -142,13 +142,14 @@ void CBoneMergeCache::MergeMatchingBones( int boneMask, CBoneBitList &boneComput
 		if ( !( m_pOwnerHdr->boneFlags( iOwnerBone ) & boneMask ) )
 			continue;
 
-		// INFESTED_DLL temp comment
-		//MatrixCopy( m_pFollow->GetBone( iParentBone ), m_pOwner->GetBoneForWrite( iOwnerBone ) );
-
+#ifndef INFESTED_DLL
+		MatrixCopy( m_pFollow->GetBone( iParentBone ), m_pOwner->GetBoneForWrite( iOwnerBone ) );
+#else
 		// INFESTED_DLL hack
 		matrix3x4_t matPitchUp;
 		AngleMatrix( QAngle( 15, 0, 0 ), matPitchUp );
 		ConcatTransforms( m_pFollow->GetBone( iParentBone ), matPitchUp, m_pOwner->GetBoneForWrite( iOwnerBone ) );
+#endif /* INFESTED_DLL */
 		
 
 		boneComputed.Set( i );

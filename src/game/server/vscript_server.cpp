@@ -1,4 +1,4 @@
-//========== Copyright © 2008, Valve Corporation, All rights reserved. ========
+//========== Copyright ï¿½ 2008, Valve Corporation, All rights reserved. ========
 //
 // Purpose:
 //
@@ -323,6 +323,9 @@ HSCRIPT CreateProp( const char *pszEntityName, const Vector &vOrigin, const char
 	{
 		pBaseEntity->SetSequence( iSequence );
 	}
+
+	DispatchSpawn( pBaseEntity );
+	pBaseEntity->Activate();
 
 	return ToHScript( pBaseEntity );
 }

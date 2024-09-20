@@ -1,4 +1,4 @@
-//========= Copyright © 1996-2005, Valve Corporation, All rights reserved. ============//
+//========= Copyright ï¿½ 1996-2005, Valve Corporation, All rights reserved. ============//
 //
 // Purpose:
 //
@@ -555,7 +555,7 @@ void CAI_NetworkManager::LoadNetworkGraph( void )
 	if ( numNodes > MAX_NODES || numNodes < 0 )
 	{
 		Error( "AI node graph %s is corrupt\n", szNrpFilename );
-		DevMsg( (const char *)buf.Base() );
+		DevMsg( "%s", (const char *)buf.Base() );
 		DevMsg( "\n" );
 		Assert( 0 );
 		return;
@@ -1123,7 +1123,7 @@ void CAI_NetworkManager::ThreadedInit( void )
 			// kick off a threaded map build. first, temporarily reset the global ai network
 			// pointer as a hack so all ais think it doesn't exist yet
 			m_ThreadedBuild.pBuildingNetwork = GetNetwork();
-#pragma message("Warning: find some way to prevent AI from using network before it's ready, but allowing the TestHull to still instantiate.")
+//#pragma message("Warning: find some way to prevent AI from using network before it's ready, but allowing the TestHull to still instantiate.")
 			// g_pBigAINet = m_pNetwork = NULL;
 			// // fire off a thread to build the map
 			m_ThreadedBuild.nBuildStage = ThreadedGraphBuildData::BUILD_UNDERWAY;
