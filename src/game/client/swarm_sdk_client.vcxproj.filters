@@ -79,6 +79,15 @@
     <Filter Include="Source Files\Shader Editor">
       <UniqueIdentifier>{04702fb3-9579-4ba2-aa22-283b9fe0a8ca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Deferred">
+      <UniqueIdentifier>{9c13c9cf-1943-4aa9-b0f7-81aed570afeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Deferred\VGUI">
+      <UniqueIdentifier>{234c16c8-0379-4349-aa32-99ea2498552e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Deferred\Shared">
+      <UniqueIdentifier>{ee47ff29-cf68-474a-8f98-6a3e958e8b7a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="client_base.vpc">
@@ -1939,6 +1948,78 @@
     </ClCompile>
     <ClCompile Include="shadereditor\shadereditorsystem.cpp">
       <Filter>Source Files\Shader Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="deferred\cascade_t.cpp">
+      <Filter>Source Files\Deferred</Filter>
+    </ClCompile>
+    <ClCompile Include="deferred\cdeferred_manager_client.cpp">
+      <Filter>Source Files\Deferred</Filter>
+    </ClCompile>
+    <ClCompile Include="deferred\clight_editor.cpp">
+      <Filter>Source Files\Deferred</Filter>
+    </ClCompile>
+    <ClCompile Include="deferred\clight_manager.cpp">
+      <Filter>Source Files\Deferred</Filter>
+    </ClCompile>
+    <ClCompile Include="deferred\def_light_t.cpp">
+      <Filter>Source Files\Deferred</Filter>
+    </ClCompile>
+    <ClCompile Include="deferred\DefCookieProjectable.cpp">
+      <Filter>Source Files\Deferred</Filter>
+    </ClCompile>
+    <ClCompile Include="deferred\DefCookieTexture.cpp">
+      <Filter>Source Files\Deferred</Filter>
+    </ClCompile>
+    <ClCompile Include="deferred\deferred_client_common.cpp">
+      <Filter>Source Files\Deferred</Filter>
+    </ClCompile>
+    <ClCompile Include="deferred\deferred_rt.cpp">
+      <Filter>Source Files\Deferred</Filter>
+    </ClCompile>
+    <ClCompile Include="deferred\flashlighteffect_deferred.cpp">
+      <Filter>Source Files\Deferred</Filter>
+    </ClCompile>
+    <ClCompile Include="deferred\IDeferredExtClient.cpp">
+      <Filter>Source Files\Deferred</Filter>
+    </ClCompile>
+    <ClCompile Include="deferred\materialsystem_passthru.cpp">
+      <Filter>Source Files\Deferred</Filter>
+    </ClCompile>
+    <ClCompile Include="deferred\viewrender_deferred.cpp">
+      <Filter>Source Files\Deferred</Filter>
+    </ClCompile>
+    <ClCompile Include="deferred\vgui\projectable_factory.cpp">
+      <Filter>Source Files\Deferred\VGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="deferred\vgui\vgui_editor_controls.cpp">
+      <Filter>Source Files\Deferred\VGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="deferred\vgui\vgui_editor_props.cpp">
+      <Filter>Source Files\Deferred\VGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="deferred\vgui\vgui_editor_root.cpp">
+      <Filter>Source Files\Deferred\VGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="deferred\vgui\vgui_marquee.cpp">
+      <Filter>Source Files\Deferred\VGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="deferred\vgui\vgui_particles.cpp">
+      <Filter>Source Files\Deferred\VGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="deferred\vgui\vgui_projectable.cpp">
+      <Filter>Source Files\Deferred\VGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\deferred\CDefLight.cpp">
+      <Filter>Source Files\Deferred\Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\deferred\CDefLightContainer.cpp">
+      <Filter>Source Files\Deferred\Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\deferred\CDefLightGlobal.cpp">
+      <Filter>Source Files\Deferred\Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\deferred\deferred_shared_common.cpp">
+      <Filter>Source Files\Deferred\Shared</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -4173,6 +4254,81 @@
     </ClInclude>
     <ClInclude Include="shadereditor\shadereditorsystem.h">
       <Filter>Source Files\Shader Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="deferred\cascade_t.h">
+      <Filter>Source Files\Deferred</Filter>
+    </ClInclude>
+    <ClInclude Include="deferred\cdeferred_manager_client.h">
+      <Filter>Source Files\Deferred</Filter>
+    </ClInclude>
+    <ClInclude Include="deferred\clight_editor.h">
+      <Filter>Source Files\Deferred</Filter>
+    </ClInclude>
+    <ClInclude Include="deferred\clight_manager.h">
+      <Filter>Source Files\Deferred</Filter>
+    </ClInclude>
+    <ClInclude Include="deferred\def_light_t.h">
+      <Filter>Source Files\Deferred</Filter>
+    </ClInclude>
+    <ClInclude Include="deferred\DefCookieProjectable.h">
+      <Filter>Source Files\Deferred</Filter>
+    </ClInclude>
+    <ClInclude Include="deferred\DefCookieTexture.h">
+      <Filter>Source Files\Deferred</Filter>
+    </ClInclude>
+    <ClInclude Include="deferred\deferred_client_common.h">
+      <Filter>Source Files\Deferred</Filter>
+    </ClInclude>
+    <ClInclude Include="deferred\deferred_rt.h">
+      <Filter>Source Files\Deferred</Filter>
+    </ClInclude>
+    <ClInclude Include="deferred\flashlighteffect_deferred.h">
+      <Filter>Source Files\Deferred</Filter>
+    </ClInclude>
+    <ClInclude Include="deferred\IDefCookie.h">
+      <Filter>Source Files\Deferred</Filter>
+    </ClInclude>
+    <ClInclude Include="deferred\materialsystem_passthru.h">
+      <Filter>Source Files\Deferred</Filter>
+    </ClInclude>
+    <ClInclude Include="deferred\viewrender_deferred.h">
+      <Filter>Source Files\Deferred</Filter>
+    </ClInclude>
+    <ClInclude Include="deferred\vgui\projectable_factory.h">
+      <Filter>Source Files\Deferred\VGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="deferred\vgui\vgui_deferred.h">
+      <Filter>Source Files\Deferred\VGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="deferred\vgui\vgui_editor_controls.h">
+      <Filter>Source Files\Deferred\VGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="deferred\vgui\vgui_editor_props.h">
+      <Filter>Source Files\Deferred\VGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="deferred\vgui\vgui_marquee.h">
+      <Filter>Source Files\Deferred\VGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="deferred\vgui\vgui_particles.h">
+      <Filter>Source Files\Deferred\VGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="deferred\vgui\vgui_projectable.h">
+      <Filter>Source Files\Deferred\VGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\deferred\CDefLight.h">
+      <Filter>Source Files\Deferred\Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\deferred\CDefLightContainer.h">
+      <Filter>Source Files\Deferred\Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\deferred\CDefLightGlobal.h">
+      <Filter>Source Files\Deferred\Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\deferred\deferred_shared_common.h">
+      <Filter>Source Files\Deferred\Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\deferred\ssemath_ext.h">
+      <Filter>Source Files\Deferred\Shared</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

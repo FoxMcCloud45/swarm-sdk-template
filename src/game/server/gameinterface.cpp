@@ -115,6 +115,10 @@
 // Activate SDK gamerules
 #include "sdk_gamerules.h"
 
+// @Deferred - Biohazard
+// for cookie string table
+#include "deferred/deferred_shared_common.h"
+
 #ifdef _WIN32
 #include "IGameUIFuncs.h"
 #endif
@@ -1489,6 +1493,10 @@ void CServerGameDLL::CreateNetworkStringTables( void )
 	g_pStringTableMaterials = networkstringtable->CreateStringTable( "Materials", MAX_MATERIAL_STRINGS, 0, 0, NSF_DICTIONARY_ENABLED );
 	g_pStringTableInfoPanel = networkstringtable->CreateStringTable( "InfoPanel", MAX_INFOPANEL_STRINGS );
 	g_pStringTableClientSideChoreoScenes = networkstringtable->CreateStringTable( "Scenes", MAX_CHOREO_SCENES_STRINGS, 0, 0, NSF_DICTIONARY_ENABLED );
+    
+    // @Deferred - Biohazard
+	g_pStringTable_LightCookies = networkstringtable->CreateStringTable( COOKIE_STRINGTBL_NAME, MAX_COOKIE_TEXTURES, 0, 0, NSF_DICTIONARY_ENABLED );
+
 
 	Assert( g_pStringTableParticleEffectNames &&
 			g_pStringTableEffectDispatch &&
@@ -1496,7 +1504,8 @@ void CServerGameDLL::CreateNetworkStringTables( void )
 			g_pStringTableMaterials &&
 			g_pStringTableInfoPanel &&
 			g_pStringTableClientSideChoreoScenes &&
-			g_pStringTableExtraParticleFiles );
+			g_pStringTableExtraParticleFiles &&
+			g_pStringTable_LightCookies ); // @Deferred - Biohazard
 
 	// Need this so we have the error material always handy
 	PrecacheMaterial( "debug/debugempty" );

@@ -34,6 +34,12 @@
     <Filter Include="Source Files\SDK\Shared">
       <UniqueIdentifier>{a0ebb6b2-4993-4465-ad54-b85c304d7f45}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Deferred">
+      <UniqueIdentifier>{ae9f738e-6f06-4286-952c-cb4f99337953}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Deferred\Shared">
+      <UniqueIdentifier>{f7e62be1-cd41-420a-a671-d51b6b7835c3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\vpc_scripts\loadaddress.vpc">
@@ -1594,6 +1600,21 @@
     </ClCompile>
     <ClCompile Include="..\shared\predicted_viewmodel.cpp">
       <Filter>Source Files\From HL2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\deferred\CDefLightGlobal.cpp">
+      <Filter>Source Files\Deferred\Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\deferred\deferred_shared_common.cpp">
+      <Filter>Source Files\Deferred\Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\deferred\CDefLight.cpp">
+      <Filter>Source Files\Deferred\Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\deferred\CDefLightContainer.cpp">
+      <Filter>Source Files\Deferred\Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="deferred\cdeferred_manager_server.cpp">
+      <Filter>Source Files\Deferred</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -3288,6 +3309,27 @@
     </ClInclude>
     <ClInclude Include="..\shared\predicted_viewmodel.h">
       <Filter>Source Files\From HL2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\deferred\CDefLightGlobal.h">
+      <Filter>Source Files\Deferred\Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\deferred\deferred_shared_common.h">
+      <Filter>Source Files\Deferred\Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\deferred\ssemath_ext.h">
+      <Filter>Source Files\Deferred\Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\deferred\CDefLight.h">
+      <Filter>Source Files\Deferred\Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\deferred\CDefLightContainer.h">
+      <Filter>Source Files\Deferred\Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="deferred\cdeferred_manager_server.h">
+      <Filter>Source Files\Deferred</Filter>
+    </ClInclude>
+    <ClInclude Include="deferred\deferred_server_common.h">
+      <Filter>Source Files\Deferred</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

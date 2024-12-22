@@ -248,6 +248,10 @@ exit 1
     <None Include="vscript_client.nut" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\shared\deferred\CDefLight.cpp" />
+    <ClCompile Include="..\shared\deferred\CDefLightContainer.cpp" />
+    <ClCompile Include="..\shared\deferred\CDefLightGlobal.cpp" />
+    <ClCompile Include="..\shared\deferred\deferred_shared_common.cpp" />
     <ClCompile Include="..\shared\Multiplayer\multiplayer_animstate.cpp" />
     <ClCompile Include="..\shared\playerclass_info_parse.cpp" />
     <ClCompile Include="..\shared\predicted_viewmodel.cpp" />
@@ -336,6 +340,26 @@ exit 1
     <ClCompile Include="c_func_conveyor.cpp" />
     <ClCompile Include="c_func_dust.cpp" />
     <ClCompile Include="c_func_lod.cpp" />
+    <ClCompile Include="deferred\cascade_t.cpp" />
+    <ClCompile Include="deferred\cdeferred_manager_client.cpp" />
+    <ClCompile Include="deferred\clight_editor.cpp" />
+    <ClCompile Include="deferred\clight_manager.cpp" />
+    <ClCompile Include="deferred\DefCookieProjectable.cpp" />
+    <ClCompile Include="deferred\DefCookieTexture.cpp" />
+    <ClCompile Include="deferred\deferred_client_common.cpp" />
+    <ClCompile Include="deferred\deferred_rt.cpp" />
+    <ClCompile Include="deferred\def_light_t.cpp" />
+    <ClCompile Include="deferred\flashlighteffect_deferred.cpp" />
+    <ClCompile Include="deferred\IDeferredExtClient.cpp" />
+    <ClCompile Include="deferred\materialsystem_passthru.cpp" />
+    <ClCompile Include="deferred\vgui\projectable_factory.cpp" />
+    <ClCompile Include="deferred\vgui\vgui_editor_controls.cpp" />
+    <ClCompile Include="deferred\vgui\vgui_editor_props.cpp" />
+    <ClCompile Include="deferred\vgui\vgui_editor_root.cpp" />
+    <ClCompile Include="deferred\vgui\vgui_marquee.cpp" />
+    <ClCompile Include="deferred\vgui\vgui_particles.cpp" />
+    <ClCompile Include="deferred\vgui\vgui_projectable.cpp" />
+    <ClCompile Include="deferred\viewrender_deferred.cpp" />
     <ClCompile Include="game_controls\basemodelpanel.cpp" />
     <ClCompile Include="game_controls\buymenu.cpp" />
     <ClCompile Include="game_controls\buysubmenu.cpp" />
@@ -1533,6 +1557,11 @@ exit 1
     <ClCompile Include="toolframework_client.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\shared\deferred\CDefLight.h" />
+    <ClInclude Include="..\shared\deferred\CDefLightContainer.h" />
+    <ClInclude Include="..\shared\deferred\CDefLightGlobal.h" />
+    <ClInclude Include="..\shared\deferred\deferred_shared_common.h" />
+    <ClInclude Include="..\shared\deferred\ssemath_ext.h" />
     <ClInclude Include="..\shared\Multiplayer\multiplayer_animstate.h" />
     <ClInclude Include="..\shared\playerclass_info_parse.h" />
     <ClInclude Include="..\shared\predicted_viewmodel.h" />
@@ -1569,6 +1598,26 @@ exit 1
     <ClInclude Include="c_spatialentity.h" />
     <ClInclude Include="cdll_bounded_cvars.h" />
     <ClInclude Include="commentary_modelviewer.h" />
+    <ClInclude Include="deferred\cascade_t.h" />
+    <ClInclude Include="deferred\cdeferred_manager_client.h" />
+    <ClInclude Include="deferred\clight_editor.h" />
+    <ClInclude Include="deferred\clight_manager.h" />
+    <ClInclude Include="deferred\DefCookieProjectable.h" />
+    <ClInclude Include="deferred\DefCookieTexture.h" />
+    <ClInclude Include="deferred\deferred_client_common.h" />
+    <ClInclude Include="deferred\deferred_rt.h" />
+    <ClInclude Include="deferred\def_light_t.h" />
+    <ClInclude Include="deferred\flashlighteffect_deferred.h" />
+    <ClInclude Include="deferred\IDefCookie.h" />
+    <ClInclude Include="deferred\materialsystem_passthru.h" />
+    <ClInclude Include="deferred\vgui\projectable_factory.h" />
+    <ClInclude Include="deferred\vgui\vgui_deferred.h" />
+    <ClInclude Include="deferred\vgui\vgui_editor_controls.h" />
+    <ClInclude Include="deferred\vgui\vgui_editor_props.h" />
+    <ClInclude Include="deferred\vgui\vgui_marquee.h" />
+    <ClInclude Include="deferred\vgui\vgui_particles.h" />
+    <ClInclude Include="deferred\vgui\vgui_projectable.h" />
+    <ClInclude Include="deferred\viewrender_deferred.h" />
     <ClInclude Include="foundryhelpers_client.h" />
     <ClInclude Include="..\shared\game_timescale_shared.h" />
     <ClInclude Include="game_controls\basemodelpanel.h" />

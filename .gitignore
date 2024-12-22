@@ -60,6 +60,18 @@
 /src/materialsystem/stdshaders/vcslist.txt
 /src/materialsystem/stdshaders/vshtmp9_tmp/
 
+# Deferred shader compile
+src/materialsystem/deferredshaders/filelist.txt
+src/materialsystem/deferredshaders/filelistgen.txt
+src/materialsystem/deferredshaders/filestocopy.txt
+src/materialsystem/deferredshaders/fxctmp9_tmp/
+src/materialsystem/deferredshaders/inclist.txt
+src/materialsystem/deferredshaders/makefile.deferred_shaders
+src/materialsystem/deferredshaders/makefile.deferred_shaders.copy
+src/materialsystem/deferredshaders/shaders/
+src/materialsystem/deferredshaders/uniquefilestocopy.txt
+src/materialsystem/deferredshaders/vcslist.txt
+
 #OS junk files
 [Tt]humbs.db
 *.DS_Store

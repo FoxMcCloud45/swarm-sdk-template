@@ -75,6 +75,11 @@ enum view_id_t
 	VIEW_INTRO_PLAYER = 5,
 	VIEW_INTRO_CAMERA = 6,
 	VIEW_SHADOW_DEPTH_TEXTURE = 7,
+
+// @Deferred - Biohazard
+	VIEW_DEFERRED_GBUFFER = 8,
+	VIEW_DEFERRED_SHADOW = 9,
+
 	VIEW_ID_COUNT
 };
 view_id_t CurrentViewID();
@@ -193,6 +198,7 @@ struct FrustumCache_t
 };
 
 FrustumCache_t *FrustumCache( void );
+
 
 //-----------------------------------------------------------------------------
 // Base class for 3d views
@@ -403,7 +409,7 @@ public:
 
 	virtual void	QueueOverlayRenderView( const CViewSetup &view, int nClearFlags, int whatToDraw );
 
-	virtual void	GetScreenFadeDistances( float *MIN, float *MAX );
+	virtual void	GetScreenFadeDistances( float *min, float *max );
 	virtual bool	AllowScreenspaceFade( void ) { return true; }
 
 	virtual C_BaseEntity *GetCurrentlyDrawingEntity();
@@ -534,8 +540,8 @@ protected:
 
 	CMaterialReference	m_WhiteMaterial;
 
-	CON_COMMAND_MEMBER_F( CViewRender, "screenfademinsize", OnScreenFadeMinSize, "Modify global screen fade MIN size in pixels", FCVAR_CHEAT | FCVAR_DEVELOPMENTONLY );
-	CON_COMMAND_MEMBER_F( CViewRender, "screenfademaxsize", OnScreenFadeMaxSize, "Modify global screen fade MAX size in pixels", FCVAR_CHEAT | FCVAR_DEVELOPMENTONLY );
+	CON_COMMAND_MEMBER_F( CViewRender, "screenfademinsize", OnScreenFadeMinSize, "Modify global screen fade min size in pixels", FCVAR_CHEAT | FCVAR_DEVELOPMENTONLY );
+	CON_COMMAND_MEMBER_F( CViewRender, "screenfademaxsize", OnScreenFadeMaxSize, "Modify global screen fade max size in pixels", FCVAR_CHEAT | FCVAR_DEVELOPMENTONLY );
 };
 
 #endif // VIEWRENDER_H

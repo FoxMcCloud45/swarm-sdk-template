@@ -15,6 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shadereditor_SWARM", "shade
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vgui_controls_editor", "vgui_editor\vgui_controls_editor.vcxproj", "{68135811-E29C-24AA-47C3-405601DC25F0}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "game_shader_generic_deferred", "materialsystem\deferredshaders\game_shader_generic_sdk.vcxproj", "{C8D2DC83-E117-7576-7B43-10C844264C51}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -37,6 +39,7 @@ Global
 		{1A1149D9-CB1B-BF85-19CA-C9C2996BFDE8}.Debug|Win32.Build.0 = Debug|Win32
 		{1A1149D9-CB1B-BF85-19CA-C9C2996BFDE8}.Release|Win32.ActiveCfg = Release|Win32
 		{1A1149D9-CB1B-BF85-19CA-C9C2996BFDE8}.Release|Win32.Build.0 = Release|Win32
+<<<<<<< HEAD
 		{F63E43F8-D184-2549-4908-96BD03BFF328}.Debug|Win32.ActiveCfg = Debug|Win32
 		{F63E43F8-D184-2549-4908-96BD03BFF328}.Debug|Win32.Build.0 = Debug|Win32
 		{F63E43F8-D184-2549-4908-96BD03BFF328}.Release|Win32.ActiveCfg = Release|Win32
@@ -49,6 +52,12 @@ Global
 		{68135811-E29C-24AA-47C3-405601DC25F0}.Debug|Win32.Build.0 = Debug|Win32
 		{68135811-E29C-24AA-47C3-405601DC25F0}.Release|Win32.ActiveCfg = Release|Win32
 		{68135811-E29C-24AA-47C3-405601DC25F0}.Release|Win32.Build.0 = Release|Win32
+=======
+		{C8D2DC83-E117-7576-7B43-10C844264C51}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C8D2DC83-E117-7576-7B43-10C844264C51}.Debug|Win32.Build.0 = Debug|Win32
+		{C8D2DC83-E117-7576-7B43-10C844264C51}.Release|Win32.ActiveCfg = Release|Win32
+		{C8D2DC83-E117-7576-7B43-10C844264C51}.Release|Win32.Build.0 = Release|Win32
+>>>>>>> d2a2494 (Added Deferred lighting by Biohazard90.)
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
