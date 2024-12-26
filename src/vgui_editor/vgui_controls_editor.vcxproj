@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>vgui_controls_editor</ProjectName>
+    <ProjectGuid>{68135811-E29C-24AA-47C3-405601DC25F0}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <TargetName>vgui_controls_editor_SWARM</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <TargetName>vgui_controls_editor_SWARM</TargetName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\lib\public\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug_vgui_editor_SWARM\</IntDir>
+    <ExecutablePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\devtools\vstools;$(ExecutablePath);$(Path)</ExecutablePath>
+    <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PreBuildEventUseInBuild>
+    <PreLinkEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PreLinkEventUseInBuild>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PostBuildEventUseInBuild>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\lib\public\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release_vgui_editor_SWARM\</IntDir>
+    <ExecutablePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\devtools\vstools;$(ExecutablePath);$(Path)</ExecutablePath>
+    <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PreBuildEventUseInBuild>
+    <PreLinkEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PreLinkEventUseInBuild>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PreBuildEvent>
+      <Command>if EXIST "..\lib\public\$(TargetName).lib" ( for /f "delims=" %%A in ('attrib "..\lib\public\$(TargetName).lib"') do set valveTmpIsReadOnly="%%A"
+) else ( if not EXIST "..\lib\public" mkdir "..\lib\public" )
+set valveTmpIsReadOnlyLetter=%valveTmpIsReadOnly:~6,1%
+if "%valveTmpIsReadOnlyLetter%"=="R" (
+    attrib -r "..\lib\public\$(TargetName).lib"
+    ..\devtools\bin\gnu\touch.exe -d "1999-01-01" "..\lib\public\$(TargetName).lib"
+    attrib +r "..\lib\public\$(TargetName).lib"
+)
+if exist "..\devtools\bin\vpc.exe" "..\devtools\bin\vpc.exe" -crc2 "vgui_controls_editor.vcxproj"
+if ERRORLEVEL 1 exit /b 1
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\vgui_editor;..\common;..\public;..\public\tier0;..\public\tier1;..\thirdparty;..\thirdparty\cef;generated_proto;..\shadereditor</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>VPC;RAD_TELEMETRY_DISABLED;_HAS_ITERATOR_DEBUGGING=0;WIN32;_WIN32;_DEBUG;DEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_ALLOW_RUNTIME_LIBRARY_MISMATCH;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_MSC_VER_MISMATCH;%(PreprocessorDefinitions);COMPILER_MSVC32;COMPILER_MSVC32;COMPILER_MSVC;_DLL_EXT=.dll;LIBNAME=vgui_controls_editor_SWARM;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;DEV_BUILD;FRAME_POINTER_OMISSION_DISABLED;SHADER_EDITOR_DLL_SWARM;_EXTERNAL_DLL_EXT=.dll;VPCGAMECAPS=VALVE;_DLL_EXT=.dll;VPCGAME=valve;SOURCE1=1</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <OpenMPSupport>false</OpenMPSupport>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ExpandAttributedSource>false</ExpandAttributedSource>
+      <AssemblerOutput>NoListing</AssemblerOutput>
+      <AssemblerListingLocation>$(IntDir)/</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)/</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)/</ProgramDataBaseFileName>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <BrowseInformation>false</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <UseFullPaths>true</UseFullPaths>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <BrowseInformationFile>$(IntDir)/</BrowseInformationFile>
+      <ErrorReporting>Prompt</ErrorReporting>
+    </ClCompile>
+    <PreLinkEvent>
+    </PreLinkEvent>
+    <Lib>
+      <UseUnicodeResponseFiles>false</UseUnicodeResponseFiles>
+      <OutputFile>..\lib\public\vgui_controls_editor_SWARM.lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalOptions> /ignore:4221</AdditionalOptions>
+    </Lib>
+    <Xdcmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Xdcmake>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>$(OutDir)/vgui_controls_editor_SWARM.bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <CustomBuildStep>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PreBuildEvent>
+      <Command>if EXIST "..\lib\public\$(TargetName).lib" ( for /f "delims=" %%A in ('attrib "..\lib\public\$(TargetName).lib"') do set valveTmpIsReadOnly="%%A"
+) else ( if not EXIST "..\lib\public" mkdir "..\lib\public" )
+set valveTmpIsReadOnlyLetter=%valveTmpIsReadOnly:~6,1%
+if "%valveTmpIsReadOnlyLetter%"=="R" (
+    attrib -r "..\lib\public\$(TargetName).lib"
+    ..\devtools\bin\gnu\touch.exe -d "1999-01-01" "..\lib\public\$(TargetName).lib"
+    attrib +r "..\lib\public\$(TargetName).lib"
+)
+if exist "..\devtools\bin\vpc.exe" "..\devtools\bin\vpc.exe" -crc2 "vgui_controls_editor.vcxproj"
+if ERRORLEVEL 1 exit /b 1
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalOptions>/d2Zi+</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>..\vgui_editor;..\common;..\public;..\public\tier0;..\public\tier1;..\thirdparty;..\thirdparty\cef;generated_proto;..\shadereditor</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>VPC;RAD_TELEMETRY_DISABLED;WIN32;_WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_ALLOW_RUNTIME_LIBRARY_MISMATCH;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_MSC_VER_MISMATCH;%(PreprocessorDefinitions);COMPILER_MSVC32;COMPILER_MSVC32;COMPILER_MSVC;_DLL_EXT=.dll;LIBNAME=vgui_controls_editor_SWARM;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;DEV_BUILD;FRAME_POINTER_OMISSION_DISABLED;SHADER_EDITOR_DLL_SWARM;_EXTERNAL_DLL_EXT=.dll;VPCGAMECAPS=VALVE;_DLL_EXT=.dll;VPCGAME=valve;SOURCE1=1</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <OpenMPSupport>false</OpenMPSupport>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ExpandAttributedSource>false</ExpandAttributedSource>
+      <AssemblerOutput>NoListing</AssemblerOutput>
+      <AssemblerListingLocation>$(IntDir)/</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)/</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)/</ProgramDataBaseFileName>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <BrowseInformation>false</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <UseFullPaths>true</UseFullPaths>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <BrowseInformationFile>$(IntDir)/</BrowseInformationFile>
+      <ErrorReporting>Prompt</ErrorReporting>
+    </ClCompile>
+    <PreLinkEvent>
+    </PreLinkEvent>
+    <Lib>
+      <UseUnicodeResponseFiles>false</UseUnicodeResponseFiles>
+      <OutputFile>..\lib\public\vgui_controls_editor_SWARM.lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalOptions> /ignore:4221</AdditionalOptions>
+    </Lib>
+    <Xdcmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Xdcmake>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>$(OutDir)/vgui_controls_editor_SWARM.bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <CustomBuildStep>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\public\color.h" />
+    <ClInclude Include="..\public\filesystem.h" />
+    <ClInclude Include="..\public\filesystem_helpers.h" />
+    <ClInclude Include="..\public\tier1\interface.h" />
+    <ClInclude Include="..\public\tier1\keyvalues.h" />
+    <ClInclude Include="..\public\tier0\memdbgoff.h" />
+    <ClInclude Include="..\public\tier0\memdbgon.h" />
+    <ClInclude Include="..\public\tier1\mempool.h" />
+    <ClInclude Include="..\public\tier1\utlmemory.h" />
+    <ClInclude Include="..\public\tier1\utlrbtree.h" />
+    <ClInclude Include="..\public\tier1\utlvector.h" />
+    <ClInclude Include="vgui_controls\analogbar.h" />
+    <ClInclude Include="vgui_controls\animatingimagepanel.h" />
+    <ClInclude Include="vgui_controls\animationcontroller.h" />
+    <ClInclude Include="vgui_controls\bitmapimagepanel.h" />
+    <ClInclude Include="vgui_controls\buildgroup.h" />
+    <ClInclude Include="vgui_controls\buildmodedialog.h" />
+    <ClInclude Include="vgui_controls\button.h" />
+    <ClInclude Include="vgui_controls\checkbutton.h" />
+    <ClInclude Include="vgui_controls\checkbuttonlist.h" />
+    <ClInclude Include="vgui_controls\circularprogressbar.h" />
+    <ClInclude Include="vgui_controls\colorpicker.h" />
+    <ClInclude Include="vgui_controls\combobox.h" />
+    <ClInclude Include="vgui_controls\controllermap.h" />
+    <ClInclude Include="vgui_controls\controls.h" />
+    <ClInclude Include="vgui_controls\cvartogglecheckbutton.h" />
+    <ClInclude Include="vgui_controls\dialogmanager.h" />
+    <ClInclude Include="vgui_controls\directoryselectdialog.h" />
+    <ClInclude Include="vgui_controls\divider.h" />
+    <ClInclude Include="vgui_controls\editablepanel.h" />
+    <ClInclude Include="vgui_controls\expandbutton.h" />
+    <ClInclude Include="vgui_controls\fileopendialog.h" />
+    <ClInclude Include="vgui_controls\fileopenstatemachine.h" />
+    <ClInclude Include="vgui_controls\focusnavgroup.h" />
+    <ClInclude Include="vgui_controls\frame.h" />
+    <ClInclude Include="vgui_controls\graphpanel.h" />
+    <ClInclude Include="vgui_controls\html.h" />
+    <ClInclude Include="vgui_controls\image.h" />
+    <ClInclude Include="vgui_controls\imagelist.h" />
+    <ClInclude Include="vgui_controls\imagepanel.h" />
+    <ClInclude Include="vgui_controls\inputdialog.h" />
+    <ClInclude Include="vgui_controls\keybindinghelpdialog.h" />
+    <ClInclude Include="vgui_controls\keybindingmap.h" />
+    <ClInclude Include="vgui_controls\keyboardeditordialog.h" />
+    <ClInclude Include="vgui_controls\keyrepeat.h" />
+    <ClInclude Include="vgui_controls\label.h" />
+    <ClInclude Include="vgui_controls\listpanel.h" />
+    <ClInclude Include="vgui_controls\listviewpanel.h" />
+    <ClInclude Include="vgui_controls\menu.h" />
+    <ClInclude Include="vgui_controls\menubar.h" />
+    <ClInclude Include="vgui_controls\menubutton.h" />
+    <ClInclude Include="vgui_controls\menuitem.h" />
+    <ClInclude Include="vgui_controls\messagebox.h" />
+    <ClInclude Include="vgui_controls\messagedialog.h" />
+    <ClInclude Include="vgui_controls\messagemap.h" />
+    <ClInclude Include="vgui_controls\panel.h" />
+    <ClInclude Include="vgui_controls\panelanimationvar.h" />
+    <ClInclude Include="vgui_controls\panellistpanel.h" />
+    <ClInclude Include="vgui_controls\pch_vgui_controls.h" />
+    <ClInclude Include="vgui_controls\perforcefileexplorer.h" />
+    <ClInclude Include="vgui_controls\perforcefilelist.h" />
+    <ClInclude Include="vgui_controls\perforcefilelistframe.h" />
+    <ClInclude Include="vgui_controls\phandle.h" />
+    <ClInclude Include="vgui_controls\progressbar.h" />
+    <ClInclude Include="vgui_controls\progressbox.h" />
+    <ClInclude Include="vgui_controls\promptsimple.h" />
+    <ClInclude Include="vgui_controls\propertydialog.h" />
+    <ClInclude Include="vgui_controls\propertypage.h" />
+    <ClInclude Include="vgui_controls\propertysheet.h" />
+    <ClInclude Include="vgui_controls\querybox.h" />
+    <ClInclude Include="vgui_controls\radiobutton.h" />
+    <ClInclude Include="vgui_controls\richtext.h" />
+    <ClInclude Include="vgui_controls\rotatingprogressbar.h" />
+    <ClInclude Include="vgui_controls\savedocumentquery.h" />
+    <ClInclude Include="vgui_controls\scalableimagepanel.h" />
+    <ClInclude Include="vgui_controls\scrollableeditablepanel.h" />
+    <ClInclude Include="vgui_controls\scrollbar.h" />
+    <ClInclude Include="vgui_controls\scrollbarslider.h" />
+    <ClInclude Include="vgui_controls\sectionedlistpanel.h" />
+    <ClInclude Include="vgui_controls\slider.h" />
+    <ClInclude Include="vgui_controls\splitter.h" />
+    <ClInclude Include="vgui_controls\subrectimage.h" />
+    <ClInclude Include="vgui_controls\textentry.h" />
+    <ClInclude Include="vgui_controls\textimage.h" />
+    <ClInclude Include="vgui_controls\togglebutton.h" />
+    <ClInclude Include="vgui_controls\tokenchannels.h" />
+    <ClInclude Include="vgui_controls\tooltip.h" />
+    <ClInclude Include="vgui_controls\toolwindow.h" />
+    <ClInclude Include="vgui_controls\treeview.h" />
+    <ClInclude Include="vgui_controls\treeviewlistcontrol.h" />
+    <ClInclude Include="vgui_controls\urllabel.h" />
+    <ClInclude Include="vgui_controls\utilities.h" />
+    <ClInclude Include="vgui_controls\wizardpanel.h" />
+    <ClInclude Include="vgui_controls\wizardsubpanel.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="analogbar.cpp" />
+    <ClCompile Include="animatingimagepanel.cpp" />
+    <ClCompile Include="animationcontroller.cpp" />
+    <ClCompile Include="bitmapimagepanel.cpp" />
+    <ClCompile Include="buildfactoryhelper.cpp" />
+    <ClCompile Include="buildgroup.cpp" />
+    <ClCompile Include="buildmodedialog.cpp" />
+    <ClCompile Include="button.cpp" />
+    <ClCompile Include="checkbutton.cpp" />
+    <ClCompile Include="checkbuttonlist.cpp" />
+    <ClCompile Include="circularprogressbar.cpp" />
+    <ClCompile Include="colorpicker.cpp" />
+    <ClCompile Include="combobox.cpp" />
+    <ClCompile Include="controllermap.cpp" />
+    <ClCompile Include="controls.cpp" />
+    <ClCompile Include="cvartogglecheckbutton.cpp" />
+    <ClCompile Include="directoryselectdialog.cpp" />
+    <ClCompile Include="divider.cpp" />
+    <ClCompile Include="editablepanel.cpp" />
+    <ClCompile Include="expandbutton.cpp" />
+    <ClCompile Include="fileopendialog.cpp" />
+    <ClCompile Include="fileopenstatemachine.cpp" />
+    <ClCompile Include="..\public\filesystem_helpers.cpp" />
+    <ClCompile Include="focusnavgroup.cpp" />
+    <ClCompile Include="frame.cpp" />
+    <ClCompile Include="graphpanel.cpp" />
+    <ClCompile Include="html.cpp" />
+    <ClCompile Include="image.cpp" />
+    <ClCompile Include="imagelist.cpp" />
+    <ClCompile Include="imagepanel.cpp" />
+    <ClCompile Include="inputdialog.cpp" />
+    <ClCompile Include="keybindinghelpdialog.cpp" />
+    <ClCompile Include="keyboardeditordialog.cpp" />
+    <ClCompile Include="keyrepeat.cpp" />
+    <ClCompile Include="label.cpp" />
+    <ClCompile Include="listpanel.cpp" />
+    <ClCompile Include="listviewpanel.cpp" />
+    <ClCompile Include="menu.cpp" />
+    <ClCompile Include="menubar.cpp" />
+    <ClCompile Include="menubutton.cpp" />
+    <ClCompile Include="menuitem.cpp" />
+    <ClCompile Include="messagebox.cpp" />
+    <ClCompile Include="messagedialog.cpp" />
+    <ClCompile Include="panel.cpp" />
+    <ClCompile Include="panellistpanel.cpp" />
+    <ClCompile Include="perforcefileexplorer.cpp" />
+    <ClCompile Include="perforcefilelist.cpp" />
+    <ClCompile Include="perforcefilelistframe.cpp" />
+    <ClCompile Include="progressbar.cpp" />
+    <ClCompile Include="progressbox.cpp" />
+    <ClCompile Include="promptsimple.cpp" />
+    <ClCompile Include="propertydialog.cpp" />
+    <ClCompile Include="propertypage.cpp" />
+    <ClCompile Include="propertysheet.cpp" />
+    <ClCompile Include="querybox.cpp" />
+    <ClCompile Include="radiobutton.cpp" />
+    <ClCompile Include="richtext.cpp" />
+    <ClCompile Include="rotatingprogressbar.cpp" />
+    <ClCompile Include="savedocumentquery.cpp" />
+    <ClCompile Include="scalableimagepanel.cpp" />
+    <ClCompile Include="scrollableeditablepanel.cpp" />
+    <ClCompile Include="scrollbar.cpp" />
+    <ClCompile Include="scrollbarslider.cpp" />
+    <ClCompile Include="sectionedlistpanel.cpp" />
+    <ClCompile Include="slider.cpp" />
+    <ClCompile Include="splitter.cpp" />
+    <ClCompile Include="subrectimage.cpp" />
+    <ClCompile Include="textentry.cpp" />
+    <ClCompile Include="textimage.cpp" />
+    <ClCompile Include="togglebutton.cpp" />
+    <ClCompile Include="tokenchannels.cpp" />
+    <ClCompile Include="tooltip.cpp" />
+    <ClCompile Include="toolwindow.cpp" />
+    <ClCompile Include="treeview.cpp" />
+    <ClCompile Include="treeviewlistcontrol.cpp" />
+    <ClCompile Include="urllabel.cpp" />
+    <ClCompile Include="utilities.cpp" />
+    <ClCompile Include="vgui_controls\vgui_controls.cpp" />
+    <ClCompile Include="wizardpanel.cpp" />
+    <ClCompile Include="wizardsubpanel.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

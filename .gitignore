@@ -40,8 +40,25 @@
 /build/*.tga
 /build/*.wav
 
+# Source Shader Editor
+/src/lib/public/vgui_controls_editor*.lib
+
 # Source build files
 /build/bin/*.pdb
+
+# Shader build
+# Built shaders are kept in /build/shaders.
+/src/materialsystem/stdshaders/NIL
+/src/materialsystem/stdshaders/filelist.txt
+/src/materialsystem/stdshaders/filelistgen.txt
+/src/materialsystem/stdshaders/filestocopy.txt
+/src/materialsystem/stdshaders/fxctmp9_tmp/
+/src/materialsystem/stdshaders/inclist.txt
+/src/materialsystem/stdshaders/makefile.*
+/src/materialsystem/stdshaders/shaders/
+/src/materialsystem/stdshaders/uniquefilestocopy.txt
+/src/materialsystem/stdshaders/vcslist.txt
+/src/materialsystem/stdshaders/vshtmp9_tmp/
 
 #OS junk files
 [Tt]humbs.db

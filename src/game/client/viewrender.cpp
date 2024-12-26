@@ -52,7 +52,7 @@
 
 #define PARTICLE_USAGE_DEMO									// uncomment to get particle bar thing
 
-
+#include "ShaderEditor/shadereditorsystem.h"
 
 
 #if defined( HL2_CLIENT_DLL ) || defined( INFESTED_DLL )
@@ -1444,6 +1444,13 @@ void CViewRender::ViewDrawScene( bool bDrew3dSkybox, SkyboxVisibility_t nSkyboxV
 
 	DrawWorldAndEntities( drawSkybox, view, nClearFlags, pCustomVisibility );
 
+	// Shader Editor
+	VisibleFogVolumeInfo_t fogVolumeInfo;
+	render->GetVisibleFogVolume( view.origin, &fogVolumeInfo );
+	WaterRenderInfo_t info;
+	DetermineWaterRenderInfo( fogVolumeInfo, info );
+	g_ShaderEditorSystem->CustomViewRender( &g_CurrentViewID, fogVolumeInfo, info );
+
 	// Disable fog for the rest of the stuff
 	DisableFog();
 
@@ -2377,6 +2384,7 @@ void CViewRender::RenderView( const CViewSetup &view, const CViewSetup &hudViewS
 				if ( ( bDrew3dSkybox = pSkyView->Setup( view, &nClearFlags, &nSkyboxVisible ) ) != false )
 				{
 					AddViewToScene( pSkyView );
+					g_ShaderEditorSystem->UpdateSkymask( false, view.x, view.y, view.width, view.height ); // Shader Editor
 				}
 				SafeRelease( pSkyView );
 			}
@@ -2476,6 +2484,9 @@ void CViewRender::RenderView( const CViewSetup &view, const CViewSetup &hudViewS
 		// Now actually draw the viewmodel
 		DrawViewModels( view, whatToDraw & RENDERVIEW_DRAWVIEWMODEL );
 
+		// Shader Editor
+		g_ShaderEditorSystem->UpdateSkymask( bDrew3dSkybox, view.x, view.y, view.width, view.height );
+
 		DrawUnderwaterOverlay();
 
 		PixelVisibility_EndScene();
@@ -2539,6 +2550,8 @@ void CViewRender::RenderView( const CViewSetup &view, const CViewSetup &hudViewS
 			}
 			pRenderContext.SafeRelease();
 		}
+
+		g_ShaderEditorSystem->CustomPostRender();
 
 		// And here are the screen-space effects
 

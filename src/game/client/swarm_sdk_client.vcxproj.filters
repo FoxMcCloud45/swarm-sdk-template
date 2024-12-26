@@ -76,6 +76,9 @@
     <Filter Include="Source Files\SDK\game controls">
       <UniqueIdentifier>{865d655e-7a45-4c85-95d9-240133f842cb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Shader Editor">
+      <UniqueIdentifier>{04702fb3-9579-4ba2-aa22-283b9fe0a8ca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="client_base.vpc">
@@ -1930,6 +1933,12 @@
     </ClCompile>
     <ClCompile Include="hud_voicestatus.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="shadereditor\sedit_modelrender.cpp">
+      <Filter>Source Files\Shader Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="shadereditor\shadereditorsystem.cpp">
+      <Filter>Source Files\Shader Editor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -4152,6 +4161,18 @@
     </ClInclude>
     <ClInclude Include="swarm\gameui\swarm\vkeyboard.h">
       <Filter>Source Files\Swarm\GameUI - Embedded\Swarm GameUI\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="shadereditor\isedit_modelrender.h">
+      <Filter>Source Files\Shader Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="shadereditor\ivshadereditor.h">
+      <Filter>Source Files\Shader Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="shadereditor\sedit_modelrender.h">
+      <Filter>Source Files\Shader Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="shadereditor\shadereditorsystem.h">
+      <Filter>Source Files\Shader Editor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

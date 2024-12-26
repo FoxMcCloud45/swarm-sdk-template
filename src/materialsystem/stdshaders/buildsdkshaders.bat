@@ -19,7 +19,7 @@ set GAMEDIR=C:\PROGRA~2\Steam\steamapps\sourcemods\swarmsdktemplate
 rem == Set the relative path to steamapps\common\Alien Swarm\bin ==
 rem == As above, this path does not support long directory names or spaces ==
 rem == e.g. ..\..\..\..\..\PROGRA~2\Steam\steamapps\common\ALIENS~1\bin ==
-set SDKBINDIR=C:\PROGRA~2\Steam\steamapps\common\ALIENS~1\bin
+set SDKBINDIR=..\..\..\..\..\PROGRA~2\Steam\steamapps\common\ALIENS~1\bin
 
 rem ==  Set the Path to your mods root source code ==
 rem this should already be correct, accepts relative paths only!
@@ -51,7 +51,13 @@ set BUILD_SHADER=call buildshaders.bat
 set ARG_EXTRA=
 
 %BUILD_SHADER% stdshader_dx9_20b		-game %GAMEDIR% -source %SOURCEDIR%
+ECHO.
+ECHO Waiting 5 seconds for shadercompile.exe subprocesses to terminate...
+ping -n 5 127.0.0.1 >NUL
 %BUILD_SHADER% stdshader_dx9_20b_new		-game %GAMEDIR% -source %SOURCEDIR% -dx9_30
+ECHO.
+ECHO Waiting 5 seconds for shadercompile.exe subprocesses to terminate...
+ping -n 5 127.0.0.1 >NUL
 %BUILD_SHADER% stdshader_dx9_30		-game %GAMEDIR% -source %SOURCEDIR% -dx9_30	-force30 
 
 rem echo.

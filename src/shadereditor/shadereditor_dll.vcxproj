@@ -1,0 +1,490 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>shadereditor_SWARM</ProjectName>
+    <ProjectGuid>{A761E5B4-2A86-2F8F-65EF-856DD386AAAF}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <TargetName>shadereditor_SWARM</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <TargetName>shadereditor_SWARM</TargetName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug_shader_editor_SWARM\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug_shader_editor_SWARM\</IntDir>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.dll</TargetExt>
+    <ExecutablePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\devtools\vstools;$(ExecutablePath);$(Path)</ExecutablePath>
+    <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PreBuildEventUseInBuild>
+    <PreLinkEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PreLinkEventUseInBuild>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</GenerateManifest>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PostBuildEventUseInBuild>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release_shader_editor_SWARM\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release_shader_editor_SWARM\</IntDir>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.dll</TargetExt>
+    <ExecutablePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\devtools\vstools;$(ExecutablePath);$(Path)</ExecutablePath>
+    <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PreBuildEventUseInBuild>
+    <PreLinkEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PreLinkEventUseInBuild>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</GenerateManifest>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PreBuildEvent>
+      <Command>if EXIST "C:\Program Files (x86)\Steam\steamapps\sourcemods\swarmsdktemplate\bin\.\$(TargetFileName)" for /f "delims=" %%A in ('attrib "C:\Program Files (x86)\Steam\steamapps\sourcemods\swarmsdktemplate\bin\.\$(TargetFileName)"') do set valveTmpIsReadOnly="%%A"
+set valveTmpIsReadOnlyLetter=%valveTmpIsReadOnly:~6,1%
+if "%valveTmpIsReadOnlyLetter%"=="R" del /q "$(TargetDir)"$(TargetFileName)
+if exist "..\devtools\bin\vpc.exe" "..\devtools\bin\vpc.exe" -crc2 "shadereditor_dll.vcxproj"
+if ERRORLEVEL 1 exit /b 1
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalOptions>/Zm200</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.\;..\vgui_editor\include;..\vgui_editor;..\common;..\public;..\public\tier0;..\public\tier1;..\shadereditor;..\shadereditor\util;..\shadereditor\interface;..\game\client\shadereditor;..\shadereditor\nodes;..\shadereditor\properties;..\shadereditor\solver;..\shadereditor\threads;..\shadereditor\solver\postprocessing;..\shadereditor\properties\postprocessing;..\shadereditor\properties\smarttext;..\shadereditor\nodes\postprocessing;..\materialsystem\</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>VPC;RAD_TELEMETRY_DISABLED;_HAS_ITERATOR_DEBUGGING=0;WIN32;_WIN32;_DEBUG;DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_ALLOW_RUNTIME_LIBRARY_MISMATCH;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_MSC_VER_MISMATCH;%(PreprocessorDefinitions);COMPILER_MSVC32;COMPILER_MSVC32;COMPILER_MSVC;_DLL_EXT=.dll;DLLNAME=shadereditor_SWARM;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;DEV_BUILD;FRAME_POINTER_OMISSION_DISABLED;NO_STRING_T;CLIENT_DLL;VECTOR;VERSION_SAFE_STEAM_API_INTERFACES;PROTECTED_THINGS_ENABLE;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;ENABLE_CHROMEHTMLWINDOW;fopen=dont_use_fopen;SHADER_EDITOR_DLL;SHADER_EDITOR_DLL_SWARM;_EXTERNAL_DLL_EXT=.dll;VPCGAMECAPS=VALVE;_DLL_EXT=.dll;VPCGAME=valve;SOURCE1=1</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>cbase.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)/shadereditor.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)/</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)/</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)/</ProgramDataBaseFileName>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <BrowseInformation>false</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <UseFullPaths>true</UseFullPaths>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <BrowseInformationFile>$(IntDir)/</BrowseInformationFile>
+      <ErrorReporting>Prompt</ErrorReporting>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>;_DEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>1033</Culture>
+    </ResourceCompile>
+    <PreLinkEvent>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalOptions> /ignore:4221</AdditionalOptions>
+      <AdditionalDependencies>;shell32.lib;user32.lib;advapi32.lib;gdi32.lib;comdlg32.lib;ole32.lib;winmm.lib;Dbghelp.lib</AdditionalDependencies>
+      <ShowProgress>NotSet</ShowProgress>
+      <OutputFile>$(OutDir)\shadereditor_SWARM.dll</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>..\lib\common\.;..\lib\public\.</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>libc;libcd;libcmt</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(IntDir)/$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <BaseAddress>
+      </BaseAddress>
+      <TargetMachine>MachineX86</TargetMachine>
+      <LinkErrorReporting>PromptImmediately</LinkErrorReporting>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <Manifest>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Manifest>
+    <Xdcmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Xdcmake>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>$(OutDir)/shadereditor_SWARM.bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+      <Message>Publishing to C:\Program Files (x86)\Steam\steamapps\sourcemods\swarmsdktemplate\bin</Message>
+      <Command>if not exist "C:\Program Files (x86)\Steam\steamapps\sourcemods\swarmsdktemplate\bin" mkdir "C:\Program Files (x86)\Steam\steamapps\sourcemods\swarmsdktemplate\bin"
+copy "$(TargetDir)$(TargetFileName)" "C:\Program Files (x86)\Steam\steamapps\sourcemods\swarmsdktemplate\bin\.\$(TargetFileName)"
+if ERRORLEVEL 1 goto BuildEventFailed
+if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" "C:\Program Files (x86)\Steam\steamapps\sourcemods\swarmsdktemplate\bin\.\$(TargetName).map"
+copy "$(TargetDir)$(TargetName).pdb" "C:\Program Files (x86)\Steam\steamapps\sourcemods\swarmsdktemplate\bin\.\$(TargetName).pdb"
+if ERRORLEVEL 1 goto BuildEventFailed
+goto BuildEventOK
+:BuildEventFailed
+echo *** ERROR! PostBuildStep FAILED for $(ProjectName)! EXE or DLL is probably running. ***
+del /q "$(TargetDir)$(TargetFileName)"
+exit 1
+:BuildEventOK
+</Command>
+    </PostBuildEvent>
+    <CustomBuildStep>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PreBuildEvent>
+      <Command>if EXIST "C:\Program Files (x86)\Steam\steamapps\sourcemods\swarmsdktemplate\bin\.\$(TargetFileName)" for /f "delims=" %%A in ('attrib "C:\Program Files (x86)\Steam\steamapps\sourcemods\swarmsdktemplate\bin\.\$(TargetFileName)"') do set valveTmpIsReadOnly="%%A"
+set valveTmpIsReadOnlyLetter=%valveTmpIsReadOnly:~6,1%
+if "%valveTmpIsReadOnlyLetter%"=="R" del /q "$(TargetDir)"$(TargetFileName)
+if exist "..\devtools\bin\vpc.exe" "..\devtools\bin\vpc.exe" -crc2 "shadereditor_dll.vcxproj"
+if ERRORLEVEL 1 exit /b 1
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalOptions>/Zm200 /d2Zi+</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>.\;..\vgui_editor\include;..\vgui_editor;..\common;..\public;..\public\tier0;..\public\tier1;..\shadereditor;..\shadereditor\util;..\shadereditor\interface;C:\btg\src\game\client\shadereditor;..\shadereditor\nodes;..\shadereditor\properties;..\shadereditor\solver;..\shadereditor\threads;..\shadereditor\solver\postprocessing;..\shadereditor\properties\postprocessing;..\shadereditor\properties\smarttext;..\shadereditor\nodes\postprocessing;..\materialsystem\</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>VPC;RAD_TELEMETRY_DISABLED;WIN32;_WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_ALLOW_RUNTIME_LIBRARY_MISMATCH;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_MSC_VER_MISMATCH;%(PreprocessorDefinitions);COMPILER_MSVC32;COMPILER_MSVC32;COMPILER_MSVC;_DLL_EXT=.dll;DLLNAME=shadereditor_SWARM;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;DEV_BUILD;FRAME_POINTER_OMISSION_DISABLED;NO_STRING_T;CLIENT_DLL;VECTOR;VERSION_SAFE_STEAM_API_INTERFACES;PROTECTED_THINGS_ENABLE;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;ENABLE_CHROMEHTMLWINDOW;fopen=dont_use_fopen;SHADER_EDITOR_DLL;SHADER_EDITOR_DLL_SWARM;_EXTERNAL_DLL_EXT=.dll;VPCGAMECAPS=VALVE;_DLL_EXT=.dll;VPCGAME=valve;SOURCE1=1</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>cbase.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)/shadereditor.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)/</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)/</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)/</ProgramDataBaseFileName>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <BrowseInformation>false</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <UseFullPaths>true</UseFullPaths>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <BrowseInformationFile>$(IntDir)/</BrowseInformationFile>
+      <ErrorReporting>Prompt</ErrorReporting>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>;NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>1033</Culture>
+    </ResourceCompile>
+    <PreLinkEvent>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalOptions> /ignore:4221</AdditionalOptions>
+      <AdditionalDependencies>;shell32.lib;user32.lib;advapi32.lib;gdi32.lib;comdlg32.lib;ole32.lib;winmm.lib</AdditionalDependencies>
+      <ShowProgress>NotSet</ShowProgress>
+      <OutputFile>$(OutDir)\shadereditor_SWARM.dll</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>..\lib\common\.;..\lib\public\.;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>libc;libcd;libcmtd</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(IntDir)/$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <BaseAddress>
+      </BaseAddress>
+      <TargetMachine>MachineX86</TargetMachine>
+      <LinkErrorReporting>PromptImmediately</LinkErrorReporting>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <Manifest>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Manifest>
+    <Xdcmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Xdcmake>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>$(OutDir)/shadereditor_SWARM.bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+      <Message>Publishing to C:\Program Files (x86)\Steam\steamapps\sourcemods\swarmsdktemplate\bin</Message>
+      <Command>if not exist "C:\Program Files (x86)\Steam\steamapps\sourcemods\swarmsdktemplate\bin" mkdir "C:\Program Files (x86)\Steam\steamapps\sourcemods\swarmsdktemplate\bin"
+copy "$(TargetDir)$(TargetFileName)" "C:\Program Files (x86)\Steam\steamapps\sourcemods\swarmsdktemplate\bin\.\$(TargetFileName)"
+if ERRORLEVEL 1 goto BuildEventFailed
+if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" "C:\Program Files (x86)\Steam\steamapps\sourcemods\swarmsdktemplate\bin\.\$(TargetName).map"
+copy "$(TargetDir)$(TargetName).pdb" "C:\Program Files (x86)\Steam\steamapps\sourcemods\swarmsdktemplate\bin\.\$(TargetName).pdb"
+if ERRORLEVEL 1 goto BuildEventFailed
+goto BuildEventOK
+:BuildEventFailed
+echo *** ERROR! PostBuildStep FAILED for $(ProjectName)! EXE or DLL is probably running. ***
+del /q "$(TargetDir)$(TargetFileName)"
+exit 1
+:BuildEventOK
+</Command>
+    </PostBuildEvent>
+    <CustomBuildStep>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Library Include="..\lib\common\jpeglib.lib" />
+    <Library Include="..\lib\public\bitmap.lib" />
+    <Library Include="..\lib\public\choreoobjects.lib" />
+    <Library Include="..\lib\public\dmxloader.lib" />
+    <Library Include="..\lib\public\interfaces.lib" />
+    <Library Include="..\lib\public\mathlib.lib" />
+    <Library Include="..\lib\public\matsys_controls.lib" />
+    <Library Include="..\lib\public\particles.lib" />
+    <Library Include="..\lib\public\steam_api.lib" />
+    <Library Include="..\lib\public\tier0.lib" />
+    <Library Include="..\lib\public\tier1.lib" />
+    <Library Include="..\lib\public\tier2.lib" />
+    <Library Include="..\lib\public\tier3.lib" />
+    <Library Include="..\lib\public\vgui_controls_editor_SWARM.lib" />
+    <Library Include="..\lib\public\vstdlib.lib" />
+    <Library Include="..\lib\public\vtf.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\shadereditor\cbase.h" />
+    <ClInclude Include="..\shadereditor\solver\hlsl_solver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\shadereditor\stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\shadereditor\chlsl_image.cpp" />
+    <ClCompile Include="..\shadereditor\chlsl_mesh.cpp" />
+    <ClCompile Include="..\shadereditor\chlsl_variable.cpp" />
+    <ClCompile Include="..\shadereditor\ckvpacker.cpp" />
+    <ClCompile Include="..\shadereditor\cregex.cpp" />
+    <ClCompile Include="..\shadereditor\editorcommon.cpp" />
+    <ClCompile Include="..\shadereditor\exported_utilities.cpp" />
+    <ClCompile Include="..\shadereditor\gdirectories.cpp" />
+    <ClCompile Include="..\shadereditor\gpostprocessingcache.cpp" />
+    <ClCompile Include="..\shadereditor\grendertargetconfig.cpp" />
+    <ClCompile Include="..\shadereditor\gshaderdumps.cpp" />
+    <ClCompile Include="..\public\tier0\memoverride.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\shadereditor\vbasediag.cpp" />
+    <ClCompile Include="..\shadereditor\vbridge.cpp" />
+    <ClCompile Include="..\shadereditor\vdialogconfig.cpp" />
+    <ClCompile Include="..\shadereditor\vdialogeditorconfig.cpp" />
+    <ClCompile Include="..\shadereditor\vdialognew.cpp" />
+    <ClCompile Include="..\shadereditor\vdialogppeconfig.cpp" />
+    <ClCompile Include="..\shadereditor\vdialogppeffectprecache.cpp" />
+    <ClCompile Include="..\shadereditor\vdialogrecompileall.cpp" />
+    <ClCompile Include="..\shadereditor\vdialogrtlist.cpp" />
+    <ClCompile Include="..\shadereditor\vdialogsprecache.cpp" />
+    <ClCompile Include="..\shadereditor\veditorflowgraphpage.cpp" />
+    <ClCompile Include="..\shadereditor\veditorflowgraphsheet.cpp" />
+    <ClCompile Include="..\shadereditor\veditorroot.cpp" />
+    <ClCompile Include="..\shadereditor\vgui_init.cpp" />
+    <ClCompile Include="..\shadereditor\vjack.cpp" />
+    <ClCompile Include="..\shadereditor\vnodeview.cpp" />
+    <ClCompile Include="..\shadereditor\vnodeviewerror.cpp" />
+    <ClCompile Include="..\shadereditor\vpreview.cpp" />
+    <ClCompile Include="..\shadereditor\vrenderpanel.cpp" />
+    <ClCompile Include="..\shadereditor\util\client_factorylist.cpp" />
+    <ClCompile Include="..\public\collisionutils.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\public\crtmemdebug.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\shadereditor\util\igamesystem.cpp" />
+    <ClCompile Include="..\vgui_editor\vgui_controls_editor.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\shadereditor\interface\dll_init.cpp" />
+    <ClCompile Include="..\shadereditor\interface\editorinit.cpp" />
+    <ClCompile Include="..\materialsystem\ivprocshader.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\shadereditor\interface\ppehelper.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vbasecontainer.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vbasenode.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_add.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_array.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_baseevaluate.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_baserange.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_break.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_callback.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_combo.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_comment.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_condition.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_constant.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_cross.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_custom.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_divide.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_dot.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_envc.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_final.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_flashlight.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_fog.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_lerp.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_lightscale.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_loop.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_matrices.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_mcompose.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_multiply.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_parallax.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_psinput.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_psoutput.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_sampler.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_std_plight.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_std_skinning.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_std_vlight.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_subtract.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_swizzle.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_texsample.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_textransform.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_utility.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_vcompression.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_vecappend.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_vectorref.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_vmtparam.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_vsinput.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\vnode_vsoutput.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\postprocessing\vnode_pp_base.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\postprocessing\vnode_pp_drawmat.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\postprocessing\vnode_pp_mat.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\postprocessing\vnode_pp_operations.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\postprocessing\vnode_pp_renderview.cpp" />
+    <ClCompile Include="..\shadereditor\nodes\postprocessing\vnode_pp_rt.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vcodeeditor.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vnodeproperties.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_array.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_base.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_callback.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_cmatrix.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_combo.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_comment.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_condition.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_constant.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_custom.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_final.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_flashlight.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_general.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_lightscale.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_loop.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_mcomp.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_multiply.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_parallax.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_psoutput.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_stdplight.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_stdpspeclight.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_stdskinning.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_stdvlight.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_swizzle.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_textransform.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_texturesample.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_vcompression.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_vmtparam.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_vsinput.cpp" />
+    <ClCompile Include="..\shadereditor\properties\vsheet_vsoutpsin.cpp" />
+    <ClCompile Include="..\shadereditor\properties\postprocessing\vsheet_pp_drawmat.cpp" />
+    <ClCompile Include="..\shadereditor\properties\postprocessing\vsheet_pp_mat.cpp" />
+    <ClCompile Include="..\shadereditor\properties\postprocessing\vsheet_pp_operations.cpp" />
+    <ClCompile Include="..\shadereditor\properties\postprocessing\vsheet_pp_renderview.cpp" />
+    <ClCompile Include="..\shadereditor\properties\postprocessing\vsheet_pp_rt.cpp" />
+    <ClCompile Include="..\shadereditor\properties\smarttext\vsmartautocomplete.cpp" />
+    <ClCompile Include="..\shadereditor\properties\smarttext\vsmartobject.cpp" />
+    <ClCompile Include="..\shadereditor\properties\smarttext\vsmartobjectlist.cpp" />
+    <ClCompile Include="..\shadereditor\properties\smarttext\vsmartrow.cpp" />
+    <ClCompile Include="..\shadereditor\properties\smarttext\vsmarttext.cpp" />
+    <ClCompile Include="..\shadereditor\properties\smarttext\vsmarttooltip.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_add.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_append.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_array.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_baseevaluate.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_baserange.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_break.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_callback.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_constant.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_containerbasic.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_cross.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_custom.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_divide.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_dot.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_dummy.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_envc.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_final.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_flashlight.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_fog.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_lerp.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_lightscale.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_matrices.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_mcomp.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_multiply.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_parallax.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_readsemantics.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_stdplight.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_stdskinning.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_stdvlight.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_subtract.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_swizzle.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_textransform.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_texturesample.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_utility.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_vcompression.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_vecref.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_vmtparam.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solver_writesemantics.cpp" />
+    <ClCompile Include="..\shadereditor\solver\chlsl_solverbase.cpp" />
+    <ClCompile Include="..\shadereditor\solver\postprocessing\chlsl_solver_pp_drawmat.cpp" />
+    <ClCompile Include="..\shadereditor\solver\postprocessing\chlsl_solver_pp_mat.cpp" />
+    <ClCompile Include="..\shadereditor\solver\postprocessing\chlsl_solver_pp_operations.cpp" />
+    <ClCompile Include="..\shadereditor\solver\postprocessing\chlsl_solver_pp_renderview.cpp" />
+    <ClCompile Include="..\shadereditor\solver\postprocessing\chlsl_solver_pp_rt.cpp" />
+    <ClCompile Include="..\shadereditor\solver\postprocessing\chlsl_solverpp_base.cpp" />
+    <ClCompile Include="..\shadereditor\threads\cbasethread.cpp" />
+    <ClCompile Include="..\shadereditor\threads\ccompilethread.cpp" />
+    <ClCompile Include="..\shadereditor\threads\csolvercallback.cpp" />
+    <ClCompile Include="..\shadereditor\threads\cthreadmanager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\public\tier0\pointeroverride.asm">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling pointeroverride.asm</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(VCInstallDir)bin\ml.exe" /safeseh /c /Cp /Zi /Fo"$(IntDir)\%(Filename).obj" "%(FullPath)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\%(Filename).obj</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compiling pointeroverride.asm</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(VCInstallDir)bin\ml.exe" /safeseh /c /Cp /Zi /Fo"$(IntDir)\%(Filename).obj" "%(FullPath)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)\%(Filename).obj</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

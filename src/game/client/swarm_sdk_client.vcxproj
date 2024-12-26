@@ -723,6 +723,8 @@ exit 1
     <ClCompile Include="sdk\vgui\sdk_teammenu.cpp" />
     <ClCompile Include="sdk\vgui\sdk_textwindow.cpp" />
     <ClCompile Include="sdk\vgui\vgui_rootpanel_sdk.cpp" />
+    <ClCompile Include="shadereditor\sedit_modelrender.cpp" />
+    <ClCompile Include="shadereditor\shadereditorsystem.cpp" />
     <ClCompile Include="simple_keys.cpp" />
     <ClCompile Include="..\..\public\simple_physics.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -1597,6 +1599,10 @@ exit 1
     <ClInclude Include="sdk\vgui\sdk_teammenu.h" />
     <ClInclude Include="sdk\vgui\sdk_textwindow.h" />
     <ClInclude Include="sdk\vgui\vgui_rootpanel_sdk.h" />
+    <ClInclude Include="shadereditor\isedit_modelrender.h" />
+    <ClInclude Include="shadereditor\ivshadereditor.h" />
+    <ClInclude Include="shadereditor\sedit_modelrender.h" />
+    <ClInclude Include="shadereditor\shadereditorsystem.h" />
     <ClInclude Include="spatialentitymgr.h" />
     <ClInclude Include="swarm\c_asw_jukebox.h" />
     <ClInclude Include="swarm\gameui\swarm\vkeyboard.h" />

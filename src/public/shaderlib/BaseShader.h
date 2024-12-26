@@ -137,6 +137,7 @@ public:
 	void PI_SetPixelShaderAmbientLightCubeLuminance( int nFirstRegister );
 	void PI_SetPixelShaderGlintDamping( int nFirstRegister );
 	void PI_SetVertexShaderAmbientLightCube( /*int nFirstRegister*/ );
+	void PI_SetVertexShaderLocalLighting( );
 	void PI_SetModulationPixelShaderDynamicState( int nRegister );
 	void PI_SetModulationPixelShaderDynamicState_LinearColorSpace_LinearScale( int nRegister, float scale );
 	void PI_SetModulationPixelShaderDynamicState_LinearScale( int nRegister, float scale );
@@ -222,7 +223,7 @@ public:
 private:
 	// This is a per-instance state which is handled completely by the system
 	void PI_SetSkinningMatrices();
-	void PI_SetVertexShaderLocalLighting( );
+	//void PI_SetVertexShaderLocalLighting( );
 
 	FORCEINLINE void SetFogMode( ShaderFogMode_t fogMode );
 
